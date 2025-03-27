@@ -340,8 +340,8 @@ export async function aoCreateProcess(
 		const processId = await aoSpawn(deps, spawnArgs);
 
 		statusCB && statusCB(`Retrieving process...`);
-		await waitForProcess(processId, statusCB);
-
+		//await waitForProcess(processId, statusCB);
+		await new Promise((r) => setTimeout(r, 3000));
 		if (args.evalTxId || args.evalSrc) {
 			statusCB && statusCB(`Process retrieved!`);
 			statusCB && statusCB('Sending eval...');
